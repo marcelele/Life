@@ -62,7 +62,7 @@ AS       := C:/MinGW/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IntermediateDirectory)/cells.c$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IntermediateDirectory)/cells.c$(ObjectSuffix) $(IntermediateDirectory)/rules.c$(ObjectSuffix) 
 
 
 
@@ -108,6 +108,14 @@ $(IntermediateDirectory)/cells.c$(DependSuffix): cells.c
 
 $(IntermediateDirectory)/cells.c$(PreprocessSuffix): cells.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/cells.c$(PreprocessSuffix) "cells.c"
+
+$(IntermediateDirectory)/rules.c$(ObjectSuffix): rules.c $(IntermediateDirectory)/rules.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "C:/Users/Marceli Baczewski/Documents/Life/Life/rules.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/rules.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/rules.c$(DependSuffix): rules.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/rules.c$(ObjectSuffix) -MF$(IntermediateDirectory)/rules.c$(DependSuffix) -MM "rules.c"
+
+$(IntermediateDirectory)/rules.c$(PreprocessSuffix): rules.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/rules.c$(PreprocessSuffix) "rules.c"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
