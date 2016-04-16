@@ -96,5 +96,9 @@
     <File Name="cells.c"/>
     <File Name="rules.h"/>
     <File Name="rules.c"/>
+    <File Name="io.c"/>
+    <File Name="io.h"/>
+    <File Name="args.h"/>
+    <File Name="args.c"/>
   </VirtualDirectory>
 </CodeLite_Project>

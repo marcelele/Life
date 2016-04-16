@@ -1,9 +1,9 @@
 typedef struct {
     int status;
-    
+
 } cell_t;
 
-typedef struct{
+typedef struct {
     cell_t **cells;
     int size;
     int gen_number;

@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Marceli Baczewski
-Date                   :=15/04/2016
+Date                   :=18/04/2016
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :=C:/MinGW/bin/g++.exe
 SharedObjectLinkerName :=C:/MinGW/bin/g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/MinGW/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IntermediateDirectory)/cells.c$(ObjectSuffix) $(IntermediateDirectory)/rules.c$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IntermediateDirectory)/cells.c$(ObjectSuffix) $(IntermediateDirectory)/rules.c$(ObjectSuffix) $(IntermediateDirectory)/io.c$(ObjectSuffix) $(IntermediateDirectory)/args.c$(ObjectSuffix) 
 
 
 
@@ -116,6 +116,22 @@ $(IntermediateDirectory)/rules.c$(DependSuffix): rules.c
 
 $(IntermediateDirectory)/rules.c$(PreprocessSuffix): rules.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/rules.c$(PreprocessSuffix) "rules.c"
+
+$(IntermediateDirectory)/io.c$(ObjectSuffix): io.c $(IntermediateDirectory)/io.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "C:/Users/Marceli Baczewski/Documents/Life/Life/io.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/io.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/io.c$(DependSuffix): io.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/io.c$(ObjectSuffix) -MF$(IntermediateDirectory)/io.c$(DependSuffix) -MM "io.c"
+
+$(IntermediateDirectory)/io.c$(PreprocessSuffix): io.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/io.c$(PreprocessSuffix) "io.c"
+
+$(IntermediateDirectory)/args.c$(ObjectSuffix): args.c $(IntermediateDirectory)/args.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "C:/Users/Marceli Baczewski/Documents/Life/Life/args.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/args.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/args.c$(DependSuffix): args.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/args.c$(ObjectSuffix) -MF$(IntermediateDirectory)/args.c$(DependSuffix) -MM "args.c"
+
+$(IntermediateDirectory)/args.c$(PreprocessSuffix): args.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/args.c$(PreprocessSuffix) "args.c"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
