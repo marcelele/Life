@@ -91,14 +91,14 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
-    <File Name="main.c"/>
-    <File Name="cells.h"/>
+    <File Name="args.c"/>
+    <File Name="args.h"/>
     <File Name="cells.c"/>
-    <File Name="rules.h"/>
-    <File Name="rules.c"/>
+    <File Name="cells.h"/>
     <File Name="io.c"/>
     <File Name="io.h"/>
-    <File Name="args.h"/>
-    <File Name="args.c"/>
+    <File Name="main.c"/>
+    <File Name="rules.c"/>
+    <File Name="rules.h"/>
   </VirtualDirectory>
 </CodeLite_Project>

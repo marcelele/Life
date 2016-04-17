@@ -23,7 +23,7 @@ int neighbour(grid_t *grid, int rows, int cols) {
     for (i = -1; i <= 1; i++) {
         for (j = -1; j <= 1; j++) {
             if (i || j) {
-                if (grid->cells[wraprows(grid->size, rows - i)][wrapcols(grid->size, cols - j)].status == 1)
+                if (grid->cells[wraprows(grid->size, rows - i)][wrapcols(grid->size, cols - j)].status)
                     count++;
             }
         }

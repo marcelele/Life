@@ -62,7 +62,7 @@ AS       := C:/MinGW/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IntermediateDirectory)/cells.c$(ObjectSuffix) $(IntermediateDirectory)/rules.c$(ObjectSuffix) $(IntermediateDirectory)/io.c$(ObjectSuffix) $(IntermediateDirectory)/args.c$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/args.c$(ObjectSuffix) $(IntermediateDirectory)/cells.c$(ObjectSuffix) $(IntermediateDirectory)/io.c$(ObjectSuffix) $(IntermediateDirectory)/main.c$(ObjectSuffix) $(IntermediateDirectory)/rules.c$(ObjectSuffix) 
 
 
 
@@ -93,13 +93,13 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/main.c$(ObjectSuffix): main.c $(IntermediateDirectory)/main.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "C:/Users/Marceli Baczewski/Documents/Life/Life/main.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/main.c$(DependSuffix): main.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.c$(ObjectSuffix) -MF$(IntermediateDirectory)/main.c$(DependSuffix) -MM "main.c"
+$(IntermediateDirectory)/args.c$(ObjectSuffix): args.c $(IntermediateDirectory)/args.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "C:/Users/Marceli Baczewski/Documents/Life/Life/args.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/args.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/args.c$(DependSuffix): args.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/args.c$(ObjectSuffix) -MF$(IntermediateDirectory)/args.c$(DependSuffix) -MM "args.c"
 
-$(IntermediateDirectory)/main.c$(PreprocessSuffix): main.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.c$(PreprocessSuffix) "main.c"
+$(IntermediateDirectory)/args.c$(PreprocessSuffix): args.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/args.c$(PreprocessSuffix) "args.c"
 
 $(IntermediateDirectory)/cells.c$(ObjectSuffix): cells.c $(IntermediateDirectory)/cells.c$(DependSuffix)
 	$(CC) $(SourceSwitch) "C:/Users/Marceli Baczewski/Documents/Life/Life/cells.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/cells.c$(ObjectSuffix) $(IncludePath)
@@ -109,14 +109,6 @@ $(IntermediateDirectory)/cells.c$(DependSuffix): cells.c
 $(IntermediateDirectory)/cells.c$(PreprocessSuffix): cells.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/cells.c$(PreprocessSuffix) "cells.c"
 
-$(IntermediateDirectory)/rules.c$(ObjectSuffix): rules.c $(IntermediateDirectory)/rules.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "C:/Users/Marceli Baczewski/Documents/Life/Life/rules.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/rules.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/rules.c$(DependSuffix): rules.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/rules.c$(ObjectSuffix) -MF$(IntermediateDirectory)/rules.c$(DependSuffix) -MM "rules.c"
-
-$(IntermediateDirectory)/rules.c$(PreprocessSuffix): rules.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/rules.c$(PreprocessSuffix) "rules.c"
-
 $(IntermediateDirectory)/io.c$(ObjectSuffix): io.c $(IntermediateDirectory)/io.c$(DependSuffix)
 	$(CC) $(SourceSwitch) "C:/Users/Marceli Baczewski/Documents/Life/Life/io.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/io.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/io.c$(DependSuffix): io.c
@@ -125,13 +117,21 @@ $(IntermediateDirectory)/io.c$(DependSuffix): io.c
 $(IntermediateDirectory)/io.c$(PreprocessSuffix): io.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/io.c$(PreprocessSuffix) "io.c"
 
-$(IntermediateDirectory)/args.c$(ObjectSuffix): args.c $(IntermediateDirectory)/args.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "C:/Users/Marceli Baczewski/Documents/Life/Life/args.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/args.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/args.c$(DependSuffix): args.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/args.c$(ObjectSuffix) -MF$(IntermediateDirectory)/args.c$(DependSuffix) -MM "args.c"
+$(IntermediateDirectory)/main.c$(ObjectSuffix): main.c $(IntermediateDirectory)/main.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "C:/Users/Marceli Baczewski/Documents/Life/Life/main.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/main.c$(DependSuffix): main.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.c$(ObjectSuffix) -MF$(IntermediateDirectory)/main.c$(DependSuffix) -MM "main.c"
 
-$(IntermediateDirectory)/args.c$(PreprocessSuffix): args.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/args.c$(PreprocessSuffix) "args.c"
+$(IntermediateDirectory)/main.c$(PreprocessSuffix): main.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.c$(PreprocessSuffix) "main.c"
+
+$(IntermediateDirectory)/rules.c$(ObjectSuffix): rules.c $(IntermediateDirectory)/rules.c$(DependSuffix)
+	$(CC) $(SourceSwitch) "C:/Users/Marceli Baczewski/Documents/Life/Life/rules.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/rules.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/rules.c$(DependSuffix): rules.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/rules.c$(ObjectSuffix) -MF$(IntermediateDirectory)/rules.c$(DependSuffix) -MM "rules.c"
+
+$(IntermediateDirectory)/rules.c$(PreprocessSuffix): rules.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/rules.c$(PreprocessSuffix) "rules.c"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

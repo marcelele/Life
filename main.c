@@ -11,15 +11,11 @@ int main(int argc, char **argv)
     int i,j,k;
     grid_t *grid;
     grid = malloc(sizeof(grid_t));
-    alloc_cells(grid, 0, 20);    
-    change_status(grid,11,11);
-    change_status(grid,12,12);
-    change_status(grid,12,13);
-    change_status(grid,11,13);
-    change_status(grid,10,13);
+    FILE *in = fopen("file.txt", "r");
+    read_bitmap(in,grid);
     for(k=0;k<80;k++){
-    for(i=0;i<20;i++){
-        for(j=0;j<20;j++){
+    for(i=0;i<10;i++){
+        for(j=0;j<10;j++){
             printf("%d ", grid->cells[i][j].status ); }
     printf("\n" ); }
     printf("Gen number: %d \n", grid->gen_number);
