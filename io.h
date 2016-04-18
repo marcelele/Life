@@ -1,5 +1,5 @@
-void read_bitmap(FILE *, grid_t  *);
+void read_grid(FILE *, grid_t  *);
 
-void write_bitmap(grid_t  *);
+void write_grid(grid_t  *);
 
-void display_bitmap(grid_t  *);
+void display_grid(grid_t  *);

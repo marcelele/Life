@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <cells.h>
+#include "cells.h"
 
 int wraprows(int size, int indexrows) {
     if (indexrows < 0)
