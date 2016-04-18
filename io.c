@@ -49,14 +49,16 @@ void read_grid(FILE *in, grid_t *grid) {
 }
 
 void write_grid(grid_t *grid) {
-    //this shit doesn't work
     int i, j;
-    char s[7];
-    FILE *out= fopen(strcat("result", s), "w");
-    itoa(grid->gen_number, s, 10);
+    char str[30];
+    sprintf(str, "result%d.txt", grid->gen_number);
+    FILE *out= fopen( str, "w+");
+    
     for (i = 0; i < grid->size; i++) {
         for (j = 0; j < grid->size; j++) {
-            fprintf(out, "%d ", grid->cells[i][j].status);
+            if(grid->cells[i][j].status){
+            fprintf(out, "* ");
+            }else fprintf(out,"0 ");
         }
         fprintf(out, "\n");
     }
@@ -69,7 +71,7 @@ void display_grid(grid_t *grid) {
 
     for (i = 0; i < grid->size; i++) {
         for (j = 0; j < grid->size; j++) {
-            printf("%d ", grid->cells[i][j].status);
+            printf("%c ", get_display(grid,i,j) );
         }
         printf("\n");
     }

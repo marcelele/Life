@@ -28,3 +28,9 @@ void clear_cells(grid_t *grid) {
 void change_status(grid_t *grid, int rows, int cols) {
     grid->cells[rows][cols].status = !grid->cells[rows][cols].status;
 }
+
+char get_display(grid_t *grid, int rows, int cols){
+    if(grid->cells[rows][cols].status==1){
+        return 254;
+    }else return 255;
+}

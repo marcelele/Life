@@ -3,6 +3,6 @@
 
 
 int *split_input(int *output, char *chain){
-    
+    output=malloc(strlen(chain));
     return output;
 }

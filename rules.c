@@ -35,7 +35,6 @@ int decide(grid_t *grid, int rows, int cols) {
     int neighbours = neighbour(grid, rows, cols);
     if (neighbours == 3 && grid->cells[rows][cols].status == 0)
         return 1;
-
     if (neighbours == 3 && grid->cells[rows][cols].status == 1)
         return 1;
     if (neighbours == 2 && grid->cells[rows][cols].status == 1)
