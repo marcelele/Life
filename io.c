@@ -33,7 +33,7 @@ void read_bitmap(FILE *in, grid_t *grid) {
             if (fgets(line, sizeof(line), in))
             {
                 if (row < grid->size) {
-                    for (i = 0; i < MAXLINE; i++) {
+                    for (i = 0; i < strlen(line); i++) {
                         if (col < grid->size) {
                             if (line[i] == '1') {change_status(grid, row, col); col++;}
                             else if(line[i]=='0'){col++;}
