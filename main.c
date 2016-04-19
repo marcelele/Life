@@ -4,7 +4,7 @@
 #include "rules.h"
 #include "io.h"
 #include "args.h"
-
+#include "pngio.h"
 
 /*  ./life 11 plansza1.txt 1,3,5,4 p 2:4:7*/
 int main(int argc, char **argv) {
@@ -41,16 +41,22 @@ int main(int argc, char **argv) {
                     }
                 }
             }
+            if (mode == 'p') {
+                for (j = 0; j < s_gens; j++) {
+                    if (save_gens[j] == grid->gen_number) {
+                        save_png(grid);
+                    }
+                }
+            }
             if (argc > 5) {
                 for (j = 0; j < d_gens; j++) {
                     if (display_gens[j] == grid->gen_number) {
                         display_grid(grid);
                     }
                 }
-                grid = nextgen(grid);
             }
+            grid = nextgen(grid);
         }
-        printf("hello world!\n");
         clear_cells(grid);
     }
     free(save_gens);

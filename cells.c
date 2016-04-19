@@ -1,4 +1,4 @@
-#include <stdlib.h>#
+#include <stdlib.h>
 #include "cells.h"
 
 void alloc_cells(grid_t *grid, int gen_num, int s) {

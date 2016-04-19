@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cells.h"
-
+#include "io.h"
 #define MAXLINE 1000
 
 
@@ -49,8 +49,9 @@ void read_grid(FILE *in, grid_t *grid) {
 void write_grid(grid_t *grid) {
     int i, j;
     char str[30];
+    FILE *out;		
     sprintf(str, "result%d.txt", grid->gen_number);
-    FILE *out= fopen( str, "w+");
+    out= fopen( str, "w+");
     
     for (i = 0; i < grid->size; i++) {
         for (j = 0; j < grid->size; j++) {

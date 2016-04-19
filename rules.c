@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include "cells.h"
-//#include "rules.h"
-
+#include "rules.h"
 int wraprows(int size, int indexrows) {
     if (indexrows < 0)
         return (size - 1);
@@ -53,5 +52,6 @@ grid_t *nextgen(grid_t *grid) {
             next->cells[i][j].status = decide(grid, i, j);
         }
     }
+    clear_cells(grid);
     return next;
 }
