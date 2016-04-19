@@ -1,34 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "cells.h"
 
-int split_input(int *output, char *chain, char *sep, int num_gens) {
-
-    const char *s;
-    int a,i;
+int *split_input(int *cnt, char *chain, char *sep, int num_gens) {
+    int a, i;
     int count = 0;
     int isPresent = 0;
     char *pt;
-    s = sep;
-    pt = strtok(chain, s);
+    int *output = malloc(0);
+    pt = strtok(chain, sep);
     while (pt != NULL) {
         a = atoi(pt);
         if (a < num_gens) {
-            isPresent=0;
-            if (count > 0) {
-                for (i = 0; i < count; i++) {
-                    if (output[i] == a) isPresent = 1;
+            isPresent = 0;
+            for (i = 0; i < count; i++) {
+                if (output[i] == a) isPresent = 1;
+            }
+
+            if (!isPresent) {
+                int *new_output;
+                count++;
+                /*printf("allocating %d space for elem:%d\n", count, a);*/
+                new_output = realloc(output, count * sizeof(int));
+
+                if (new_output == NULL) {
+                    fprintf(stderr, "Blad realokacji w obludze argumentow!\n");
+                    free(output);
                 }
-                if (!isPresent) {
-                    count++;
-                    if(realloc(output, count * sizeof(int *))==NULL)
-                        fprintf(stderr, "Blad realokacji w obludze argumentow!\n");
+                else {
+                    output = new_output;
                     output[count - 1] = a;
                 }
             }
         }
-        pt = strtok(NULL, s);
+        pt = strtok(NULL, sep);
     }
-    return count;
+
+    *cnt = count;
+    return output;
 }

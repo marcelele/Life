@@ -1,6 +1,5 @@
+#include <stdlib.h>#
 #include "cells.h"
-#include <stdlib.h>
-
 
 void alloc_cells(grid_t *grid, int gen_num, int s) {
     int i = 0;
@@ -21,6 +20,9 @@ void alloc_cells(grid_t *grid, int gen_num, int s) {
 }
 
 void clear_cells(grid_t *grid) {
+    int i;
+    for(i = 0; i < grid->size; i++)
+        free(grid->cells[i]);
     free(grid->cells);
     free(grid);
 }
@@ -31,6 +33,6 @@ void change_status(grid_t *grid, int rows, int cols) {
 
 char get_display(grid_t *grid, int rows, int cols){
     if(grid->cells[rows][cols].status==1){
-        return 254;
-    }else return 255;
+        return 42;
+    }else return 0;
 }

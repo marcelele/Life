@@ -6,4 +6,4 @@ int neighbour(grid_t *grid, int rows, int cols);
 
 int decide(grid_t *grid, int rows, int cols);
 
-grid_t nextgen(grid_t *grid);
+grid_t *nextgen(grid_t *grid);

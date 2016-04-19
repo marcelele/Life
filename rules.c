@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "cells.h"
+//#include "rules.h"
 
 int wraprows(int size, int indexrows) {
     if (indexrows < 0)
@@ -42,14 +43,14 @@ int decide(grid_t *grid, int rows, int cols) {
     else return 0;
 }
 
-grid_t nextgen(grid_t *grid) {
+grid_t *nextgen(grid_t *grid) {
     int i;
     int j;
-    grid_t next;
-    alloc_cells(&next, grid->gen_number + 1, grid->size);
+    grid_t *next = malloc(sizeof(grid_t));
+    alloc_cells(next, grid->gen_number + 1, grid->size);
     for (i = 0; i < grid->size; i++) {
         for (j = 0; j < grid->size; j++) {
-            next.cells[i][j].status = decide(grid, i, j);
+            next->cells[i][j].status = decide(grid, i, j);
         }
     }
     return next;
