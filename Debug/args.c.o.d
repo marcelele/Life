@@ -1,1 +1,3 @@
-Debug/args.c.o: args.c
+Debug/args.c.o: args.c cells.h
+
+cells.h:

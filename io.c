@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "cells.h"
 #include <string.h>
-
+#include "cells.h"
 
 #define MAXLINE 1000
 
 
 void read_grid(FILE *in, grid_t *grid) {
-    //this shit works
     int i;
     char line[MAXLINE];
     int grid_size = 0;

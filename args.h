@@ -1,2 +1,2 @@
 
-int *split_input(int, char*);
+int *split_input( int *, char*, char *, int);
