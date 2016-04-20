@@ -5,7 +5,9 @@
 #include "io.h"
 #define MAXLINE 1000
 
-
+/*This module is responsible for reading the initial grid
+* displaying a grid to console and saving a grid to a text file
+*/
 void read_grid(FILE *in, grid_t *grid) {
     int i;
     char line[MAXLINE];

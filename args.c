@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include "args.h"
+/*this splits an input string (chain) of ints separated by a char (sep)
+* and returns an array of unique integers found in this chain.
+* int cnt is modified for us to know about the size of the array
+*/
 int *split_input(int *cnt, char *chain, char *sep, int num_gens) {
     int a, i;
     int count = 0;
@@ -20,9 +24,7 @@ int *split_input(int *cnt, char *chain, char *sep, int num_gens) {
             if (!isPresent) {
                 int *new_output;
                 count++;
-                /*printf("allocating %d space for elem:%d\n", count, a);*/
                 new_output = realloc(output, count * sizeof(int));
-
                 if (new_output == NULL) {
                     fprintf(stderr, "Blad realokacji w obludze argumentow!\n");
                     free(output);

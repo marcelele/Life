@@ -1,6 +1,10 @@
 #include <stdlib.h>
 #include "cells.h"
 
+/*This module is responsible for the implementation of 
+*cells and grid data structures
+*as well as all memory handling associated with them
+*/
 void alloc_cells(grid_t *grid, int gen_num, int s) {
     int i = 0;
     int j = 0;

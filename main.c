@@ -6,7 +6,8 @@
 #include "args.h"
 #include "pngio.h"
 
-/*  ./life 11 plansza1.txt 1,3,5,4 p 2:4:7*/
+/*  .to run a program, use the following sample arguments:
+*	/life 100 test.txt  1,3,5,4,39 p 2,4,7,6*/
 int main(int argc, char **argv) {
     int i, j;
     int num_gens;
@@ -29,9 +30,8 @@ int main(int argc, char **argv) {
     if (argc > 5)
         display_gens = split_input(&d_gens, argv[5], ",", num_gens);
     else display_gens = malloc(0);
-
-    grid = malloc(sizeof(grid_t));
-    if (in) {
+    if (in!=NULL) {
+    	grid = malloc(sizeof(grid_t));
         read_grid(in, grid);
         for (i = 0; i <= num_gens; i++) {
             if (mode == 't') {
@@ -58,11 +58,9 @@ int main(int argc, char **argv) {
             grid = nextgen(grid);
         }
         clear_cells(grid);
-    }
-    free(save_gens);
-    free(display_gens);
-
     fclose(in);
-
+    }
+    free(display_gens);
+    free(save_gens);
     return 0;
 }

@@ -1,6 +1,9 @@
 #include <stdlib.h>
 #include "cells.h"
 #include "rules.h"
+/*This module is an implementation of Conway's game of Life
+* with the grid wrapping also implemented as a feature
+*/
 int wraprows(int size, int indexrows) {
     if (indexrows < 0)
         return (size - 1);

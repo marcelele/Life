@@ -6,7 +6,7 @@
 #include <png.h>
 #include "cells.h"
 #include "pngio.h"
-
+/*this module saves a grid to a png file*/
 void save_png(grid_t *grid){
 int x, y;
 
